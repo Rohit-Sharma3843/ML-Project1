@@ -1,5 +1,5 @@
 let input = document.querySelector("#city");
-let weather=document.querySelector('#weather_img');
+let weather = document.querySelector("#weather_img");
 let stat_head = document.querySelector("#stat");
 let search = document.querySelector("#search_button");
 let loc = document.querySelector("#search_val");
@@ -32,10 +32,10 @@ let val = 1;
 function set_image(val) {
   let a = ["Temperature", "Wind Speed", "Cloud Cover", "Relative humidity"];
   let b = ["temperature.png", "windy.png", "cloudy.png", "humidity.png"];
-  return `<img class="hourly_img" src="./images/${b[val - 1]}" alt="" />
+  return `<img class="hourly_img" src="/images/${b[val - 1]}" alt="" />
               <span class="hourly_parameter">${a[val - 1]}</span>`;
 }
-async function get_data(city) { 
+async function get_data(city) {
   let api_key = "qfEk0OLTMnlHukAbhFlBVA==4uyJ2jKdsdoMQXpv";
   let url1 = `https://api.api-ninjas.com/v1/geocoding?city=${city}`;
   let location_resp = await fetch(url1, {
@@ -88,7 +88,7 @@ async function get_data(city) {
   let rel_humidity_today = [];
   let wind_speed_today = [];
   let cloud_cover_today = [];
-  let isday=data.current.is_day;
+  let isday = data.current.is_day;
   for (let i = 0; i < 24; i++) {
     temp_today.push(temperature[i]);
     rel_humidity_today.push(humidity[i]);
@@ -170,20 +170,19 @@ function post_current_data(
   w_speed_now.innerHTML = wind;
   cloud_now.innerHTML = cloud;
   pressure_now.innerHTML = pressure;
-  if(isday){
-    weather.innerHTML=`<img
+  if (isday) {
+    weather.innerHTML = `<img
             id="weather"
             alt="image not available"
             loading="lazy"
-            src="./images/day.png"
+            src="/images/day.png"
           />`;
-  }
-  else{
-    weather.innerHTML=`<img
+  } else {
+    weather.innerHTML = `<img
             id="weather"
             alt="image not available"
             loading="lazy"
-            src="./images/night.png"
+            src="/images/night.png"
           />`;
   }
 }
@@ -250,7 +249,7 @@ right.addEventListener("click", () => {
   }
 });
 search.addEventListener("click", async () => {
-  search.innerHTML=`<img class="gif" src="./images/loading.gif" alt="" />`;;
+  search.innerHTML = `<img class="gif" src="/images/loading.gif" alt="" />`;
   await get_data(input.value);
-  search.innerHTML=`<img class="gif" src="./images/search.gif" alt="" />`;
+  search.innerHTML = `<img class="gif" src="/images/search.gif" alt="" />`;
 });
