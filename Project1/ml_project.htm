@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI-Driven Risky Driver Predictor</title>
+    <link rel="stylesheet" href="ml_project.css" />
+    <link rel="shortcut icon" href="risk.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="h" id="title">
+        AI-Powered Risky Driver Identification System
+      </div>
+      <div class="h" id="head">Risky Driver Identifier</div>
+      <div class="h" id="h_description">
+        Advanced machine learning algorithms analyze driver profiles profiles to
+        predict risk levels with unprecedented accuracy.
+      </div>
+      <div id="h_analytics">
+        <div class="param1">
+          <div class="value">98.5%</div>
+          <div class="parameter">Accuracy</div>
+        </div>
+        <div class="param1">
+          <div class="value">50K+</div>
+          <div class="parameter">Predictions</div>
+        </div>
+        <div class="param1">
+          <div class="value">0.2s</div>
+          <div class="parameter">Response time</div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <form method="POST">
+        <div id="profile">
+          <div id="form_head">
+            <img class="form_icon" src="profile.png" alt="" />
+            <span>Driver Profile</span>
+          </div>
+          <p id="form_desc">
+            Enter comprehensive driver information for accurate risk assesment.
+          </p>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="model.png" alt="" />
+            <label for="model">Model *</label><br />
+          </div>
+          <select class="input_field" name="model">
+            <option disabled selected hidden>Select model</option>
+            <option>Decision Tree</option>
+            <option>Extra Trees</option>
+            <option>Gradient Boosting</option>
+            <option>KNN</option>
+            <option>Linear Regression</option>
+            <option>MLP Regressor</option>
+            <option>Random Forest</option>
+            <option>SVM Regressor</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="gender.png" alt="" />
+            <label for="gender">Gender *</label><br />
+          </div>
+          <select class="input_field" name="gender">
+            <option disabled selected hidden>Select an option</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Rather not say</option>
+            <option>Transgender</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="age.png" alt="" />
+            <label for="age">Age *</label><br />
+          </div>
+          <input
+            placeholder="Enter your age"
+            class="input_field"
+            type="number"
+            min="0"
+            max="100"
+          />
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="helmet.png" alt="" />
+            <label for="helmet">Helmet Worn *</label><br />
+          </div>
+          <select class="input_field" name="helmet">
+            <option disabled selected hidden>Select an option</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="seatbelt.png" alt="" />
+            <label for="seatbelt">Seatbelt Worn *</label><br />
+          </div>
+          <select class="input_field" name="seatbelt">
+            <option disabled selected hidden>Select an option</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="road.png" alt="" />
+            <label for="road">Road Condition *</label><br />
+          </div>
+          <select class="input_field" name="road">
+            <option disabled selected hidden>Select an option</option>
+            <option>Dry</option>
+            <option>Wet</option>
+            <option>Snow</option>
+            <option>Gravel</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="weather.png" alt="" />
+            <label for="weather">Weather Condition *</label><br />
+          </div>
+          <select class="input_field" name="weather">
+            <option disabled selected hidden>Select an option</option>
+            <option>Clear</option>
+            <option>Cloudy</option>
+            <option>Foggy</option>
+            <option>Rainy</option>
+            <option>Dust Storm</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="breathanalyzer.png" alt="" />
+            <label for="alcohol">Breathalyzer Result *</label><br />
+          </div>
+          <select class="input_field" name="alcohol">
+            <option disabled selected hidden>Select an option</option>
+            <option>Positive</option>
+            <option>Negative</option>
+            <option>Not available</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="vehicle.png" alt="" />
+            <label for="vehicle">Vehicle Type *</label><br />
+          </div>
+          <select class="input_field" name="vehicle">
+            <option disabled selected hidden>Select an option</option>
+            <option>Car</option>
+            <option>Bus</option>
+            <option>Bike</option>
+            <option>Scooter</option>
+            <option>Truck</option>
+            <option>Auto</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="violation.png" alt="" />
+            <label for="violation">Number of violations *</label><br />
+          </div>
+          <input
+            class="input_field"
+            type="number"
+            min="0"
+            max="10"
+            placeholder="enter number of violations"
+          />
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="insurance.png" alt="" />
+            <label for="insurance">Insurance Status *</label><br />
+          </div>
+          <select class="input_field" name="insurance">
+            <option disabled selected hidden>Select an option</option>
+            <option>Valid</option>
+            <option>Expired</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="driving_license.png" alt="" />
+            <label for="license">License Status *</label><br />
+          </div>
+          <select class="input_field" name="license">
+            <option disabled selected hidden>Select an option</option>
+            <option>Valid</option>
+            <option>Expired/No license</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="mobile_drive.png" alt="" />
+            <label for="mobile">Mobile used while driving *</label><br />
+          </div>
+          <select class="input_field" name="mobile">
+            <option disabled selected hidden>Select an option</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="influence.png" alt="" />
+            <label for="influence">Driving under influence *</label><br />
+          </div>
+          <select class="input_field" name="influence">
+            <option disabled selected hidden>Select an option</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="accident.png" alt="" />
+            <label for="accident">Previous accidents*</label><br />
+          </div>
+          <input
+            class="input_field"
+            type="number"
+            min="0"
+            max="10"
+            placeholder="enter number of previous accidents"
+          />
+        </div>
+        <div class="item">
+          <div class="field_head">
+            <img class="item_icon" src="speed.png" alt="" />
+            <label for="speed">Average Speed*</label><br />
+          </div>
+          <input
+            class="input_field"
+            type="number"
+            min="1"
+            max="150"
+            placeholder="enter average speed"
+          />
+        </div>
+        <button id="submit">
+          <img id="submit_icon" src="graph.png" alt="" />
+          Predict
+        </button>
+      </form>
+    </main>
+    {% if prediction %}
+    <h2 style="text-align: center; color: white; margin: 20px">
+      Predicted Risk Score: {{ prediction }}
+    </h2>
+    {% endif %}
+  </body>
+</html>
