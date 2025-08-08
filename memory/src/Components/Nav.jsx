@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import img1 from "../../images/brain.png";
-import img2 from "../../images/play.png";
-import img3 from "../../images/info.png";
+import img1 from "/images/brain.png";
+import img2 from "/images/play.png";
+import img3 from "images/info.png";
 import { NavLink } from "react-router-dom";
-import img4 from "../../images/night.png";
-import img5 from "../../images/light.png";
+import img4 from "/images/night.png";
+import img5 from "/images/light.png";
 const Nav = (props) => {
   const [mode, alter] = props.variables;
   return (
