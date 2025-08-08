@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState } from "react";
-import img1 from "../../images/flag.png";
-import img2 from "../../images/jet.png";
-import img3 from "../../images/coding.png";
-import img5 from "../../images/space.png";
-import img4 from "../../images/animal.png";
+import img1 from "/images/flag.png";
+import img2 from "/images/jet.png";
+import img3 from "/images/coding.png";
+import img5 from "/images/space.png";
+import img4 from "/images/animal.png";
 import { NavLink } from "react-router-dom";
 import { cont } from "../App";
 const Themes = (props) => {
