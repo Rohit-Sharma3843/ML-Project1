@@ -27,12 +27,13 @@ const Game = () => {
   }, [theme]);
 
   const initializeGame = () => {
-    const url = `../../images/${theme}/`;
-    const imagePairs = [];
-    for (let i = 1; i <= (order * order) / 2; i++) {
-      imagePairs.push(`${url}${i}.png`);
-      imagePairs.push(`${url}${i}.png`);
-    }
+    const url = `/images/${theme}/`;
+const imagePairs = [];
+for (let i = 1; i <= (order * order) / 2; i++) {
+  imagePairs.push(`${url}${i}.png`);
+  imagePairs.push(`${url}${i}.png`);
+}
+
     const shuffledCards = imagePairs
       .sort(() => Math.random() - 0.5)
       .map((image, index) => ({
