@@ -27,7 +27,7 @@ const Game = () => {
   }, [theme]);
 
   const initializeGame = () => {
-    const url = `../../images/${theme}/`;
+    const url = `/images/${theme}/`;
     const imagePairs = [];
     for (let i = 1; i <= (order * order) / 2; i++) {
       imagePairs.push(`${url}${i}.png`);
