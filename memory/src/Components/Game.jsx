@@ -27,7 +27,7 @@ const Game = () => {
   }, [theme]);
 
   const initializeGame = () => {
-    const url = `/images/${theme}/`;
+    const url = `../../images/${theme}/`;
     const imagePairs = [];
     for (let i = 1; i <= (order * order) / 2; i++) {
       imagePairs.push(`${url}${i}.png`);
@@ -155,11 +155,10 @@ const Game = () => {
       </div>
 
       <div
+        className="game_grid"
         style={{
-          display: "grid",
           gridTemplateColumns: `repeat(${order}, 1fr)`,
           gridTemplateRows: `repeat(${order}, 1fr)`,
-          gap: "5px",
         }}
       >
         {cards.map((card) => (
