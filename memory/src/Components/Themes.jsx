@@ -6,6 +6,7 @@ import img5 from "/images/space.png";
 import img4 from "/images/animal.png";
 import { NavLink } from "react-router-dom";
 import { cont } from "../App";
+import "./Nav.css";
 const Themes = (props) => {
   const [theme, setTheme] = useContext(cont);
   const [mode, change] = props.variables;
@@ -23,8 +24,8 @@ const Themes = (props) => {
       <div
         className={
           mode === "dark"
-            ? " text-gray-700 pt-4 w-[40vw] mx-[30vw] flex flex-col gap-4 p-3"
-            : "w-[40vw] mx-[30vw] pt-4 flex flex-col gap-4 p-3 text-white"
+            ? " text-gray-700 theme_box pt-4 w-[40vw] mx-[30vw] flex flex-col gap-4 p-3"
+            : "w-[40vw] theme_box  mx-[30vw] pt-4 flex flex-col gap-4 p-3 text-white"
         }
       >
         <NavLink
@@ -36,8 +37,8 @@ const Themes = (props) => {
           <div
             className={
               mode === "dark"
-                ? "flex justify-around items-center bg-gray-200 rounded-2xl"
-                : "flex justify-around items-center bg-violet-700 rounded-2xl"
+                ? "flex theme  justify-around items-center bg-gray-200 rounded-2xl"
+                : "flex theme justify-around items-center bg-violet-700 rounded-2xl"
             }
           >
             <img className="w-[60px]" src={img1} alt="" />
@@ -53,8 +54,8 @@ const Themes = (props) => {
           <div
             className={
               mode === "dark"
-                ? "flex justify-around items-center bg-gray-200 rounded-2xl"
-                : "flex justify-around items-center bg-violet-700 rounded-2xl"
+                ? "flex theme justify-around items-center bg-gray-200 rounded-2xl"
+                : "flex theme justify-around items-center bg-violet-700 rounded-2xl"
             }
           >
             <img className="w-[60px]" src={img2} alt="" />
@@ -70,8 +71,8 @@ const Themes = (props) => {
           <div
             className={
               mode === "dark"
-                ? "flex justify-around items-center bg-gray-200 rounded-2xl"
-                : "flex justify-around items-center bg-violet-700 rounded-2xl"
+                ? "flex theme justify-around items-center bg-gray-200 rounded-2xl"
+                : "flex theme justify-around items-center bg-violet-700 rounded-2xl"
             }
           >
             <img className="w-[60px]" src={img3} alt="" />
@@ -87,8 +88,8 @@ const Themes = (props) => {
           <div
             className={
               mode === "dark"
-                ? "flex justify-around items-center bg-gray-200 rounded-2xl"
-                : "flex justify-around items-center bg-violet-700 rounded-2xl"
+                ? "flex theme justify-around items-center bg-gray-200 rounded-2xl"
+                : "flex theme justify-around items-center bg-violet-700 rounded-2xl"
             }
           >
             <img className="w-[60px]" src={img4} alt="" />
@@ -104,8 +105,8 @@ const Themes = (props) => {
           <div
             className={
               mode === "dark"
-                ? "flex justify-around items-center bg-gray-200 rounded-2xl"
-                : "flex justify-around items-center bg-violet-700 rounded-2xl"
+                ? "flex theme justify-around items-center bg-gray-200 rounded-2xl"
+                : "flex theme justify-around items-center bg-violet-700 rounded-2xl"
             }
           >
             <img className="w-[60px]" src={img5} alt="" />
