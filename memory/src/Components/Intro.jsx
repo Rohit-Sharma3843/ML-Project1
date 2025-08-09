@@ -1,13 +1,13 @@
 import React from "react";
-import img from "/images/brain.png";
+import img from "../../images/brain.png";
 const Intro = (props) => {
   const [mode, alter] = props.variables;
   return (
     <div
       className={
         mode == "light"
-          ? `w-[40vw] my-[100px] text-white rounded-2xl mx-[30vw] bg-[#26252528] border-1 border-gray-400 text-xl p-3`
-          : `w-[40vw] my-[100px] rounded-2xl mx-[30vw] bg-[#26252528] border-1 border-gray-400 text-xl p-3`
+          ? `w-[40vw] intro_box my-[100px] text-white rounded-2xl mx-[30vw] bg-[#26252528] border-1 border-gray-400 text-xl p-3`
+          : `w-[40vw] intro_box my-[100px] rounded-2xl mx-[30vw] bg-[#26252528] border-1 border-gray-400 text-xl p-3`
       }
     >
       <div className="flex p-3 items-center justify-center gap-4">
