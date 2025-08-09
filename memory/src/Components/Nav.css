@@ -1,0 +1,48 @@
+@media screen and (max-width: 640px) {
+  .outside {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .buttons {
+    width: 90vw;
+    margin-left: 5vw;
+  }
+}
+@media screen and (max-width: 900px) {
+  .intro_box {
+    width: 90vw;
+    margin: 5vw;
+  }
+  .theme_box {
+    width: 90vw;
+    margin: 5vw;
+  }
+}
+@media screen and (max-width: 360px) {
+  .theme {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 1200px) and (min-width: 900px) {
+  .form_box {
+    width: 50vw;
+  }
+}
+@media screen and (max-width: 899px) and (min-width: 600px) {
+  .form_box {
+    margin: 10vw;
+    width: 80vw;
+  }
+}
+@media (max-width: 599px) {
+  .form_box {
+    width: 90vw;
+    margin-left: 5vw;
+  }
+  .details {
+    font-size: large;
+  }
+  .input {
+    width: 100px;
+  }
+}
