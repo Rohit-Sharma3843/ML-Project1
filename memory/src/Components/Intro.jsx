@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../../images/brain.png";
+import img from "/images/brain.png";
 const Intro = (props) => {
   const [mode, alter] = props.variables;
   return (
