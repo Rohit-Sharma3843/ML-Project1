@@ -27,7 +27,7 @@
   padding: 10px 20px;
   border-radius: 8px;
   background-color: #f0f0f0;
-  min-width: 150px;
+  /* min-width: 150px; */
 }
 
 .active-player {
@@ -139,4 +139,41 @@
 
 .active-player {
   animation: pulse 2s infinite;
+}
+.game_grid {
+  display: grid;
+  gap: 5px;
+}
+@media screen and (max-width: 600px) {
+  .game-info {
+    width: 90vw;
+    margin-left: 5vw;
+  }
+  .player {
+    width: 100px;
+    height: 100px;
+    padding: 4px;
+  }
+  .reset-button {
+    font-size: medium;
+    margin-left: 5px;
+    padding: 2px;
+  }
+  .game_grid {
+    width: 90vw;
+    margin-left: 5vw;
+    gap: 2px;
+  }
+}
+@media screen and (max-width: 548px) and (min-width: 400px) {
+  .card {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 399px) {
+  .card {
+    width: 30px;
+    height: 30px;
+  }
 }
