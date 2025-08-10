@@ -43,6 +43,7 @@ async function get_data(city) {
     return;
   }
   let geo_data = await location_resp.json();
+  console.log("Geo API Response:", geo_data);
   if (geo_data.length === 0) {
     today.style.cssText = "display:block;font-size: 30px; color: white; text-decoration: underline;border:none;";
     today.innerHTML = "City not found";
@@ -182,3 +183,4 @@ search.addEventListener("click", async () => {
   await get_data(input.value);
   search.innerHTML = `<img class="gif" src="/images/search.gif" alt="" />`;
 });
+
