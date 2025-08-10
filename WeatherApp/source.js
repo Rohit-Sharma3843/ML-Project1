@@ -37,7 +37,7 @@ function set_image(val) {
 }
 async function get_data(city) {
   let api_key = "qfEk0OLTMnlHukAbhFlBVA==4uyJ2jKdsdoMQXpv";
-  let url1 = `https://api.api-ninjas.com/v1/geocoding?city=${city}`;
+  let url1 = `/api/geocode?city=${city}`;
   let location_resp = await fetch(url1, {
     method: "GET",
     headers: {
@@ -62,7 +62,7 @@ async function get_data(city) {
   console.log(geo_data);
   let lat = geo_data[0].latitude;
   let long = geo_data[0].longitude;
-  let url2 = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_max,temperature_2m_min,sunset,sunrise,wind_speed_10m_max&hourly=relative_humidity_2m,wind_speed_10m,temperature_2m,cloud_cover&current=is_day,pressure_msl,temperature_2m,wind_speed_10m,cloud_cover,relative_humidity_2m&timezone=auto`;
+  let url2 = `/api/weather?lat=${lat}&lon=${long}`;
   let weather_resp = await fetch(url2);
   if (!weather_resp.ok) {
     today.innerHTML = "Error in fetching data";
