@@ -22,11 +22,17 @@
           Get accurate 7-day weather predictions for any city
         </p>
         <div id="search">
-          <input id="city" type="text" placeholder="enter the city name" />
+          <input
+            autocomplete="off"
+            id="city"
+            type="text"
+            placeholder="enter the city name"
+          />
           <button id="search_button">
             <img class="gif" src="/images/search.gif" alt="" />
           </button>
         </div>
+        <div id="history"></div>
       </div>
     </head>
     <div id="today">
@@ -175,6 +181,173 @@
                 </div>
                 <span>28&deg;C</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="get7">
+        <p>Get 7 day weather forecast</p>
+        <img id="day7_img" src="/images/7day_forecst.png" alt="" />
+      </div>
+      <div id="daily">
+        <div id="day1" class="days">
+          <div class="date" id="date1">27/08/2025</div>
+          <div class="daily_stat">
+            <div class="daily_stat_names">
+              <p>Max</p>
+              <p>Min</p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunrise.png" class="rise_set_img" alt="" />
+                <span>Sunrise</span>
+              </p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunset.png" class="rise_set_img" alt="" />
+                <span>Sunset</span>
+              </p>
+            </div>
+            <div class="daily_stat_values">
+              <p class="max_temp" id="max_temp_day1">24&deg;C</p>
+              <p class="min_temp" id="min_temp_day1">38&deg;C</p>
+              <p class="sunrise" id="sunrise_day1">6:00AM</p>
+              <p class="sunset" id="sunset_day1">7:00PM</p>
+            </div>
+          </div>
+        </div>
+        <div id="day2" class="days">
+          <div class="date" id="date2">27/08/2025</div>
+          <div class="daily_stat">
+            <div class="daily_stat_names">
+              <p>Max</p>
+              <p>Min</p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunrise.png" class="rise_set_img" alt="" />
+                <span>Sunrise</span>
+              </p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunset.png" class="rise_set_img" alt="" />
+                <span>Sunset</span>
+              </p>
+            </div>
+            <div class="daily_stat_values">
+              <p class="max_temp" id="max_temp_day2">24&deg;C</p>
+              <p class="min_temp" id="min_temp_day2">38&deg;C</p>
+              <p class="sunrise" id="sunrise_day2">6:00AM</p>
+              <p class="sunset" id="sunset_day2">7:00PM</p>
+            </div>
+          </div>
+        </div>
+        <div id="day3" class="days">
+          <div class="date" id="date3">27/08/2025</div>
+          <div class="daily_stat">
+            <div class="daily_stat_names">
+              <p>Max</p>
+              <p>Min</p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunrise.png" class="rise_set_img" alt="" />
+                <span>Sunrise</span>
+              </p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunset.png" class="rise_set_img" alt="" />
+                <span>Sunset</span>
+              </p>
+            </div>
+            <div class="daily_stat_values">
+              <p class="max_temp" id="max_temp_day3">24&deg;C</p>
+              <p class="min_temp" id="min_temp_day3">38&deg;C</p>
+              <p class="sunrise" id="sunrise_day3">6:00AM</p>
+              <p class="sunset" id="sunset_day3">7:00PM</p>
+            </div>
+          </div>
+        </div>
+        <div id="day4" class="days">
+          <div class="date" id="date4">27/08/2025</div>
+          <div class="daily_stat">
+            <div class="daily_stat_names">
+              <p>Max</p>
+              <p>Min</p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunrise.png" class="rise_set_img" alt="" />
+                <span>Sunrise</span>
+              </p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunset.png" class="rise_set_img" alt="" />
+                <span>Sunset</span>
+              </p>
+            </div>
+            <div class="daily_stat_values">
+              <p class="max_temp" id="max_temp_day4">24&deg;C</p>
+              <p class="min_temp" id="min_temp_day4">38&deg;C</p>
+              <p class="sunrise" id="sunrise_day4">6:00AM</p>
+              <p class="sunset" id="sunset_day4">7:00PM</p>
+            </div>
+          </div>
+        </div>
+        <div id="day5" class="days">
+          <div class="date" id="date5">27/08/2025</div>
+          <div class="daily_stat">
+            <div class="daily_stat_names">
+              <p>Max</p>
+              <p>Min</p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunrise.png" class="rise_set_img" alt="" />
+                <span>Sunrise</span>
+              </p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunset.png" class="rise_set_img" alt="" />
+                <span>Sunset</span>
+              </p>
+            </div>
+            <div class="daily_stat_values">
+              <p class="max_temp" id="max_temp_day5">24&deg;C</p>
+              <p class="min_temp" id="min_temp_day5">38&deg;C</p>
+              <p class="sunrise" id="sunrise_day5">6:00AM</p>
+              <p class="sunset" id="sunset_day5">7:00PM</p>
+            </div>
+          </div>
+        </div>
+        <div id="day6" class="days">
+          <div class="date" id="date6">27/08/2025</div>
+          <div class="daily_stat">
+            <div class="daily_stat_names">
+              <p>Max</p>
+              <p>Min</p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunrise.png" class="rise_set_img" alt="" />
+                <span>Sunrise</span>
+              </p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunset.png" class="rise_set_img" alt="" />
+                <span>Sunset</span>
+              </p>
+            </div>
+            <div class="daily_stat_values">
+              <p class="max_temp" id="max_temp_day6">24&deg;C</p>
+              <p class="min_temp" id="min_temp_day6">38&deg;C</p>
+              <p class="sunrise" id="sunrise_day6">6:00AM</p>
+              <p class="sunset" id="sunset_day6">7:00PM</p>
+            </div>
+          </div>
+        </div>
+        <div id="day7" class="days">
+          <div class="date" id="date7">27/08/2025</div>
+          <div class="daily_stat">
+            <div class="daily_stat_names">
+              <p>Max</p>
+              <p>Min</p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunrise.png" class="rise_set_img" alt="" />
+                <span>Sunrise</span>
+              </p>
+              <p class="rise_set_img_para">
+                <img src="/images/sunset.png" class="rise_set_img" alt="" />
+                <span>Sunset</span>
+              </p>
+            </div>
+            <div class="daily_stat_values">
+              <p class="max_temp" id="max_temp_day7">24&deg;C</p>
+              <p class="min_temp" id="min_temp_day7">38&deg;C</p>
+              <p class="sunrise" id="sunrise_day7">6:00AM</p>
+              <p class="sunset" id="sunset_day7">7:00PM</p>
             </div>
           </div>
         </div>
