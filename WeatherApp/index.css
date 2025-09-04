@@ -78,13 +78,12 @@ body {
 }
 #search button {
   border: none;
-  overflow: hidden;
   border-radius: 10px;
   cursor: pointer;
   padding: 5px;
   transition: all 0.3s ease-in-out;
 }
-#search button :hover {
+#search #search_button :hover {
   box-shadow: 1px 1px 20px 0px black;
 }
 .gif {
@@ -580,4 +579,25 @@ body {
 .history_temp {
   display: flex;
   align-items: center;
+}
+#curr_loc {
+  font-family: "Rye";
+  padding: 20px 0px;
+  display: flex;
+  width: 200px;
+  background-color: white;
+  height: auto;
+  color: orange;
+}
+#curr_div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+#curr_div:hover {
+  box-shadow: 1px 1px 20px 0px black;
+}
+#cur_loc_img {
+  border: none;
+  width: 50px;
 }
