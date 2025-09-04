@@ -41,6 +41,8 @@ let hist_class = document.querySelector(".history");
 let city_name = document.querySelector(".history_city_name");
 let seven_day = document.querySelector("#get7");
 let day7_stats = document.querySelector("#daily");
+let curr_loc = document.querySelector("#curr_loc");
+let geo_loc = 0;
 let curr = [],
   curr_max = 0,
   unit = "";
@@ -48,39 +50,88 @@ let val = 1;
 seven_day.addEventListener("click", () => {
   day7_stats.style.display = "block";
 });
+async function coordinates() {
+  search.style.display = "none";
+  curr_loc.innerHTML = `<div id="curr_div">
+              <p>Searching..</p>
+              <img id="cur_loc_img" src="/images/loading.gif" alt="" />
+            </div>`;
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        try {
+          let longitude = position.coords.longitude;
+          let latitude = position.coords.latitude;
+          console.log(longitude + "  " + latitude);
+
+          let res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+          );
+          let data = await res.json();
+          geo_loc = 1;
+          get_data("xyz", 1, latitude, longitude, data.display_name);
+          geo_loc = 0;
+          curr_loc.innerHTML = `<div id="curr_div">
+              <p>Use my current location</p>
+              <img id="cur_loc_img" src="/images/cur_loc.gif" alt="" />
+            </div>`;
+          search.style.display = "block";
+        } catch (err) {
+          console.error("Fetch error:", err);
+        }
+      },
+      (error) => {
+        console.log("Geolocation error:", error.message);
+      }
+    );
+  }
+}
+
 function set_image(val) {
   let a = ["Temperature", "Wind Speed", "Cloud Cover", "Relative humidity"];
   let b = ["temperature.png", "windy.png", "cloudy.png", "humidity.png"];
   return `<img class="hourly_img" src="/images/${b[val - 1]}" alt="" />
               <span class="hourly_parameter">${a[val - 1]}</span>`;
 }
-async function get_data(city) {
-  let api_key = "qfEk0OLTMnlHukAbhFlBVA==4uyJ2jKdsdoMQXpv";
-  let url1 = `https://api.api-ninjas.com/v1/geocoding?city=${city}`;
-  let location_resp = await fetch(url1, {
-    method: "GET",
-    headers: {
-      "X-Api-Key": api_key,
-      "Content-Type": "application/json",
-    },
-  });
-  if (!location_resp.ok) {
-    today.style.cssText =
-      "display:block;font-size: 30px; color: white; text-decoration: underline;border:none;";
-    today.innerHTML = "Error in fetching data";
-    return;
+async function get_data(city, geo_loc = 0, p1 = 0, p2 = 0, p3 = "") {
+  let api_key, url1, location_resp, geo_data, lat, long, state, place;
+  if (geo_loc != 1) {
+    api_key = "qfEk0OLTMnlHukAbhFlBVA==4uyJ2jKdsdoMQXpv";
+    url1 = `https://api.api-ninjas.com/v1/geocoding?city=${city}`;
+    location_resp = await fetch(url1, {
+      method: "GET",
+      headers: {
+        "X-Api-Key": api_key,
+        "Content-Type": "application/json",
+      },
+    });
+    if (!location_resp.ok) {
+      today.style.cssText =
+        "display:block;font-size: 30px; color: white; text-decoration: underline;border:none;";
+      today.innerHTML = "Error in fetching data";
+      return;
+    }
+    geo_data = await location_resp.json();
+    console.log(geo_data.length);
+    if (geo_data.length == 0) {
+      today.style.cssText =
+        "display:block;font-size: 30px; color: white; text-decoration: underline;border:none;";
+      today.innerHTML = "Error in fetching data";
+      return;
+    }
+    console.log(geo_data);
+    lat = geo_data[0].latitude;
+    long = geo_data[0].longitude;
+    place = geo_data[0].name;
+    state = geo_data[0].state;
+    country = geo_data[0].country;
+  } else {
+    lat = p1;
+    long = p2;
+    place = p3;
+    state = "";
+    country = "";
   }
-  let geo_data = await location_resp.json();
-  console.log(geo_data.length);
-  if (geo_data.length == 0) {
-    today.style.cssText =
-      "display:block;font-size: 30px; color: white; text-decoration: underline;border:none;";
-    today.innerHTML = "Error in fetching data";
-    return;
-  }
-  console.log(geo_data);
-  let lat = geo_data[0].latitude;
-  let long = geo_data[0].longitude;
   let url2 = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_max,temperature_2m_min,sunset,sunrise,wind_speed_10m_max&hourly=relative_humidity_2m,wind_speed_10m,temperature_2m,cloud_cover&current=is_day,pressure_msl,temperature_2m,wind_speed_10m,cloud_cover,relative_humidity_2m&daily=sunrise,sunset,temperature_2m_min,temperature_2m_max,weather_code&timezone=auto`;
   let weather_resp = await fetch(url2);
   if (!weather_resp.ok) {
@@ -88,9 +139,6 @@ async function get_data(city) {
   }
   let data = await weather_resp.json();
   console.log(data);
-  let place = geo_data[0].name;
-  let state = geo_data[0].state;
-  let country = geo_data[0].country;
   let temperature = data.hourly.temperature_2m;
   let cloud = data.hourly.cloud_cover;
   let wind = data.hourly.wind_speed_10m;
@@ -182,13 +230,15 @@ async function get_data(city) {
     nation: country,
     temp: temp_now,
   };
-  for (let i = 0; i < localStorage.lengthl; i++) {
-    if (localStorage.key(i) == place) {
+  for (let i = 0; i < localStorage.length; i++) {
+    if (localStorage.key(i) == place && geo_loc == 0) {
       localStorage.setItem(place, JSON.stringify(value));
       return;
     }
   }
-  localStorage.setItem(place, JSON.stringify(value));
+  if (geo_loc == 0) {
+    localStorage.setItem(place, JSON.stringify(value));
+  }
 }
 function post_current_data(
   temp,
@@ -292,11 +342,6 @@ right.addEventListener("click", () => {
     right.disabled = true;
   }
 });
-search.addEventListener("click", async () => {
-  search.innerHTML = `<img class="gif" src="/images/loading.gif" alt="" />`;
-  await get_data(input.value);
-  search.innerHTML = `<img class="gif" src="/images/search.gif" alt="" />`;
-});
 input.addEventListener("input", () => {
   storage = [];
   for (let i = 0; i < localStorage.length; i++) {
@@ -311,17 +356,17 @@ input.addEventListener("input", () => {
     hist.innerHTML += `<div id="item${
       i + 1
     }" class="history"><div class="history_city">
-        <img class="history_img" src="/images/location.png" alt="" />
-        <p class="history_city_name"><span class="ct">${
-          storage[i].loc || ""
-        }</span>, ${storage[i].st || ""}, ${storage[i].nation || ""}</p>
-      </div>
-      <div class="history_temp">
-        <img class="history_img" src="/images/temperature.png" alt="" />
-        <p class="history_city_temp">${
-          storage[i].temp !== undefined ? storage[i].temp : ""
-        }&deg;C</p>
-      </div></div>`;
+    <img class="history_img" src="/images/location.png" alt="" />
+    <p class="history_city_name"><span class="ct">${
+      storage[i].loc || ""
+    }</span>, ${storage[i].st || ""}, ${storage[i].nation || ""}</p>
+    </div>
+    <div class="history_temp">
+    <img class="history_img" src="/images/temperature.png" alt="" />
+    <p class="history_city_temp">${
+      storage[i].temp !== undefined ? storage[i].temp : ""
+    }&deg;C</p>
+    </div></div>`;
   }
 });
 hist.addEventListener("mousedown", (e) => {
@@ -344,4 +389,12 @@ document.addEventListener("click", (e) => {
 
 input.addEventListener("blur", () => {
   hist.innerHTML = "";
+});
+curr_loc.addEventListener("click", async () => {
+  await coordinates();
+});
+search.addEventListener("click", async () => {
+  search.innerHTML = `<img class="gif" src="/images/loading.gif" alt="" />`;
+  await get_data(input.value);
+  search.innerHTML = `<img class="gif" src="/images/search.gif" alt="" />`;
 });
